@@ -12,3 +12,32 @@ function moveCar(event) {
 }
 
 document.addEventListener("keydown", moveCar);
+
+
+
+
+
+const user = {
+    email: 'bartolomej.rozumbrada@gmail.com',
+    password: 'vimzenicnevim',
+    name: 'Bartoloměj',
+}
+
+document.querySelector('#formular').addEventListener('submit', (e) => {
+    e.preventDefault()
+
+    const emailInput = document.querySelector('#email')
+    const passwordInput = document.querySelector('#heslo')
+    const container = document.querySelector('.kontajner')
+    const status = document.querySelector('#status')
+
+    if (
+        emailInput.value === user.email &&
+        passwordInput.value === user.password
+    ) {
+        container.innerHTML = `<h1>Přihlásený užívateľ: ${user.name}</h1>`
+    } else {
+        status.textContent = 'Neplatné prihlasovacie údaje'
+        passwordInput.value = ''
+    }
+})
